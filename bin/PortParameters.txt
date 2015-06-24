@@ -1,0 +1,134 @@
+############################################# PARAMETERS.TXT #############################################
+#
+# This file sets all parameters necessary for the Portfolio Method.
+# This file has four parts:
+#
+#	 @PORTFOLIO	 --> Set some general parameters for the Portfolio method such as initial time; alpha, etc. 
+# 	 @PROBLEM -----> Define which problem to be solved.  
+#	 @STOPPER -----> Set all necessary stop criteria for each portfolio run.
+#	 @OUTPUT  -----> Define what should be included in the output files (population, statistics, etc.).
+#
+############################################# PARAMETERS.TXT #############################################
+#
+############## PORTFOLIO ########## PORTFOLIO ########## PORTFOLIO ##############
+#
+# Number of runs to perform for the same problem.
+# Default = 1
+portRuns = 1
+
+# Initial time slot in miliseconds.
+# Default = 1000
+T0 = 1000
+
+# Time multiplier for each algorithm in the portfolio.
+# Default = 1 (Every algorithm gets the same amount of CPU time)
+alpha = 1        					
+
+# Name of the input file where all necessary parameters for the parameterless method are set.
+parParamFile = ParParameters.txt
+#
+############## PORTFOLIO ########## PORTFOLIO ########## PORTFOLIO ##############
+#
+#
+#
+############# PROBLEM ########## PROBLEM ########## PROBLEM ##############
+#
+# This part of the file contains a list of all
+# problems to be solved by EDABisection.
+# Each problem has to be defined has a class which implements
+# interface IProblem in the file 'Problem.java'. 
+# See 'ReadMe.txt' for instructions.
+#
+# Choose an option for 'problem' from the menu
+# ZERO Problems
+#	0   -> ZeroMax						(stringSize = n)
+# 	1   -> Zero Quadratic		 		(stringSize = 2n)
+#	2   -> Zero 3-Deceptive	 			(stringSize = 3n)
+#	3   -> Zero 3-Deceptive Bipolar 	(stringSize = 6n)	
+#	4   -> Zero 3-Deceptive Overlapping (stringSize = 2n+1)
+#	5   -> Zero Trap-k 		 			(stringSize = kn)
+#	6   -> Zero Uniform 6-Blocks	 	(stringSize = 6n)	
+# ONE Problems
+#   10  -> OneMax              			(stringSize = n)
+# 	11  -> Quadratic		 			(stringSize = 2n)
+#	12  -> 3-Deceptive	 				(stringSize = 3n)
+#	13  -> 3-Deceptive Bipolar 			(stringSize = 6n)
+#	14  -> 3-Deceptive Overlapping 		(stringSize = 2n+1)
+#	15  -> Trap-k 		 				(stringSize = kn)
+#	16  -> Uniform 6-Blocks	 			(stringSize = 6n)
+# OTHER Problems	
+#	21 -> Hierarchical Trap	One			(stringSize = 3^n)
+#	22 -> Hierarchical Trap	Two			(stringSize = 3^n)
+#	30 -> Ising Spin Glasses  			(stringSize = ??)	// NOT IMPLEMENTED!!
+#
+#
+# Problem type.
+# Default = 10 (OneMax)
+problemType = 10
+
+# Set the 'stringSize' in accordance with the chosen problem
+# Default = 100 (OneMax size)
+stringSize = 100
+
+# NOTE: Both stop criteria 4 and 5 on 'ParParameters.txt' depend on the optimum value.
+#		The user is responsible for setting the optimum value
+#		correctly, according with the chosen problem.
+# No default. It is problem dependent.					
+optimumValue = 100
+
+# Order of the TRAP-K problems.
+# NOTE: This is only for TRAP-K problems.
+# Default = 4
+kay = 4
+
+# Proportionality constant between the string size and the
+# standard deviation for fitness noise. We define:
+#
+#		sigma = sigmaK * n
+#
+# NOTE: Noise is a random variable with a normal distribution
+#		with average 0 and standard deviation 'sigma'.
+# Default = 0 (non-NOISY problems)
+sigmaK = 0
+
+#
+############# PROBLEM ########## PROBLEM ########## PROBLEM ##############
+#
+#
+#
+############# STOPPER ########## STOPPER ########## STOPPER ##############
+#
+# 1 - Maximum number of portfolio iterations to perform.
+# Default = -1 (ignore)
+maxIterations = -1
+
+# 2 - Maximum number of fitness calls to perform.
+# Default = -1 (ignore)
+maxFitnessCalls = -1
+
+# 3 - Maximum time allowed for a run of the portfolio, in milliseconds.
+# Default = -1 (ignore)
+maxTimeAllowed = -1 
+
+#
+############# STOPPER ########## STOPPER ########## STOPPER ##############
+#
+#
+#
+############# OUTPUT ########## OUTPUT ########## OUTPUT ##############
+#
+# Verbose mode prints all currentSolver info in each generation:
+#
+#	false -> Non-verbose mode.
+#	 true -> Verbose mode.
+# Default = false
+verbose = true
+#
+############# OUTPUT ########## OUTPUT ########## OUTPUT ##############
+
+
+
+
+
+
+# End of File!

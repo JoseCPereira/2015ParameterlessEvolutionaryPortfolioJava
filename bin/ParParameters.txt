@@ -1,0 +1,69 @@
+############################################# PARAMETERS.TXT #############################################
+#
+# This file sets all parameters necessary for the Parameterless Method.
+# This file as two parts:
+#
+#	 @PARAMETERLESS --> Set some general parameters for the Parameterless method such as initial population size, etc. 
+# 	 @STOPPER --------> Set all necessary stop criteria for each parameterless generation.  
+#
+############################################# PARAMETERS.TXT #############################################
+#
+############## PARAMETERLESS ########## PARAMETERLESS ########## PARAMETERLESS ##############
+#
+#
+# Initial population size
+# NOTE: For the Portfolio metaheuristic, N0 is always set to 4.
+N0 = 4
+
+# Number of generations before performing one iteration with the next Solver.
+# 
+#	999999 --> STANDALONE
+#	     4 --> PEBS
+#
+# Default = 4 (PEBS)
+nextSolver = 4 
+
+#
+############## PARAMETERLESS ########## PARAMETERLESS ########## PARAMETERLESS ##############
+#
+#
+#
+############# STOPPER ########## STOPPER ########## STOPPER ##############
+#
+#
+# 3 - Stop if all individuals have the same fitness. 
+# Default = -1 (ignore) 
+allFitnessEqual = -1
+
+# 4 - Termination threshold for the univariate frequencies.
+# NOTE: Proportion of either 1's or 0's is at least epsilon for all variables Xi.
+# NOTE: If epsilon == 1 use Worst Replacement (HBOA) to ensure halting!
+# Default = -1 (ignore)
+epsilon = 1
+
+# 5 - Proportion of optimal individuals threshold.	(needs optimumValue)
+# NOTE: maxOptimal is the maximum proportion of individuals with optimum
+#		fitness to be found in the population.
+# Default = -1 (ignore)
+maxOptimal = -1
+
+# 6 - Stop if the optimum was found?
+# 			-1 -> No
+#			 1 -> Yes		(needs optimumValue)
+# NOTE: foundBestFit assumes that 'stringSize' is always the optimum value.
+# Default = -1 (ignore)
+foundBestFit = -1  
+
+# 7 - Stop if the string of ones (or zeros) was found?
+#			-1 -> Ignore
+#			 0 -> Stop with zeros	(Zero Problems)
+#			 1 -> Stop with ones	( One Problems)  
+# NOTE: This criterium is for test only!
+# Default = -1 (ignore)
+foundOnes = 1
+
+########## END STOP CRITERIA ##########
+
+
+
+# End of File!

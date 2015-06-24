@@ -1,0 +1,99 @@
+############################################# PARAMETERS.TXT #############################################
+#
+# This file sets all parameters necessary for the SGA algorithm.
+# This file as three parts:
+#	 @RUNS  -------> Set the number of runs to be performed by the algorithm.
+# 	 @PROBLEM  ----> Define which problem to be solved
+#    @PARAMETERS --> Set all parameters for the SGA engine such as population size,
+#                    stop criteria, selection method, replacement method, etc. 
+#
+############################################# PARAMETERS.TXT #############################################
+#
+#
+############### PARAMETERS ########## PARAMETERS ########## PARAMETERS #################
+#
+# This second part of the file contains a list of all
+# parameter values for SGA
+# 
+# SELECTION METHOD:
+#  selectionMethod = 2
+#		  tourSize = 4
+#	 offspringSize = 1 (the same value as N)
+# CROSSOVER:
+#		pCrossover = 0.6
+#		nCrossover = 1
+# MUTATION:
+#		pMutation = 1/n
+# REPLACEMENT METHOD:
+#  replacementType = 3	(Simple Replacement)
+##############################
+
+
+########## SELECTION METHOD ##########
+#
+# Selection method:
+# 	1 -> Tournament Selection with replacement    (needs tourSize)
+# 	2 -> Tournament Selection without replacement (needs tourSize)  
+#	3 -> Truncation								  (needs tau)
+#  99 -> FixSet	
+# Default = 2 (Tournament Selection)
+selectionMethod = 2
+
+# If Selection method = 1 or 2 then choose the tournament size
+# Default = 4
+tourSize = 4
+
+# Size of Selection Set and of the Offspring Set.
+# Define 'offspringSize' as a proportion of the population size.
+# NOTE: For the Worst Replacement method, 'offspringSize' also corresponds
+#		to the proportion of worst individuals to be replaced. 	
+# Default = 1 (same value as N)
+offspringSize = 1
+
+########## END SELECTION METHOD ##########
+
+
+########## OPERATORS ### OPERATORS ##########
+# Probability of Crossover.
+# Default = 0.5
+pCrossover = .5
+
+# Number of cross points:
+#	 0 -> Uniform Crossover			// NOTE: Must set pSwap for Uniform Crossover!
+#	>0 -> NPoint Crossover
+#   99 -> Adaptive NPoint Crossover: n-point = Ceiling[n/(10k)]
+# Default = 0 (Uniform Crossover)
+nCrossover = 0
+
+# Probability of Swapping a bit.	// NOTE: This option is for Uniform Crossover only!
+# Default = 0.5
+pSwap = 0.5
+
+# Probability of Mutation.
+# Default = 99 (= 1/n , inverse of stringSize)
+pMutation = 0
+
+########## END OPERATORS ### END OPERATORS ##########
+
+
+########## REPLACEMENT METHOD ##########
+# Replacement method
+# 	1 -> Restricted Replacement 	(needs windowSize)
+# 	2 -> Worst Replacement    
+#	3 -> Full Replacement			
+# Default = 3 (Full Replacement)
+replacementType = 3
+
+# If replacementType = 1 then choose the window size.
+# Define 'windowSize' as a proportion of the string size.
+# Default = 1 (the same value as stringSize) // Recommended in Martin Pelikan, 'Hierarchical Bayesian Optimization Algorithm', p. 122
+windowSize = 1
+
+########## END REPLACEMENT METHOD ##########
+
+############### PARAMETERS ########## PARAMETERS ########## PARAMETERS #################
+
+
+
+
+# End of File!
